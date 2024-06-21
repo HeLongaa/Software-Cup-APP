@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title> PPT智作 </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/ppt.css') }}" >
+    <script type="module" src="https://jsd.duolaa.top/npm/sober@0.1.23/dist/main.js"></script>
+    <script src="{{ url_for('static', filename='/js/main.js') }}"></script>
+</head>
+<body>
+    <s-page style="background: transparent;">
+        <s-fab id="fabButton">
+            <s-icon type="home"></s-icon>
+        </s-fab>
+
+        <s-carousel class="carousel">
+              <div style="background: #936d6d"></div>
+              <div style="background: #6d936f"></div>
+              <div style="background: #856d93"></div>
+        </s-carousel>
+<!--轮播图，要换-->
+        <div class="input-box">
+            <div class="container">
+                 <input type="text" required="required" id="user-input">
+                    <label>请输入你的要求</label>
+                    <i></i>
+            </div>
+            <s-dialog size="full">
+                  <!--触发按钮-->
+                  <s-button slot="trigger" > Continue </s-button>
+                  <!--自定义布局-->
+                  <div class="more-window">
+                      <div class="H1"> <div class="H1-text"> 更多设置 </div> </div>
+                      <s-divider></s-divider>
+
+                      <div class="H2"> PPT主题 </div>
+                      <!--主题图片置入卡片-->
+                      <div class="theme">
+                          <s-segmented-button>
+                              <s-segmented-button-item>
+                                <s-icon slot="start" type="done"></s-icon> item1
+                              </s-segmented-button-item>
+                              <s-segmented-button-item selected="true">
+                                <s-icon slot="start" type="search"></s-icon>
+                                item2
+                              </s-segmented-button-item>
+                              <s-segmented-button-item >
+                                item3
+                                <s-icon slot="start" type="close"></s-icon>
+                              </s-segmented-button-item>
+                              <s-segmented-button-item>item4</s-segmented-button-item>
+                          </s-segmented-button>
+                      </div>
+
+                      <s-divider></s-divider>
+                      <div class="H2"> 是否生成PPT注释 </div>
+                      <s-switch class="isc"></s-switch>
+                      <!--这个地方需要添加数据获取，通过组件属性，theme &isc，要求使用主题预览-->
+
+                  </div>
+                  <s-fab class="s-fab-false" slot="action">
+                      <s-icon type="close"></s-icon>
+                  </s-fab>
+                  <s-fab class="s-fab-done" slot="" id="checkButton">
+                      <s-icon type="done"></s-icon>
+                  </s-fab>
+                <!--done按钮需要绑定事件,位置：main,js-->
+            </s-dialog>
+        </div>
+    </s-page>
+</body>
+</html>

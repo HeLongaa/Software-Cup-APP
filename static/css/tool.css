@@ -1,0 +1,14 @@
+@font-face {
+      font-family: "LXGW WenKai", sans-serif !important;
+      src: url('https://cdn.staticfile.net/lxgw-wenkai-webfont/1.7.0/style.css') format('truetype'); /* 字体文件路径 */
+}
+
+@media (max-width: 800px) {
+
+}
+
+
+body {
+    font-family: LXGW WenKai, Arial, sans-serif;
+    background-image: url('../images/background.jpg');
+}

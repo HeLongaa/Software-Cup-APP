@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>PPT生成</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/result.css') }}" >
+    <script type="module" src="https://jsd.duolaa.top/npm/sober@0.1.23/dist/main.js"></script>
+    <script src="{{ url_for('static', filename='/js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/ppt.js') }}"></script>
+</head>
+<body>
+    <s-page style="background: transparent;">
+        <s-fab id="fabButton">
+            <s-icon type="home"></s-icon>
+        </s-fab>
+        <div class="container">
+            <div id="data-container" class="box box1">
+                <div class="loading">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                </div>
+            </div>
+
+            <div class="box box2">Box 2，其他</div>
+        </div>
+
+    </s-page>
+</body>
+</html>
