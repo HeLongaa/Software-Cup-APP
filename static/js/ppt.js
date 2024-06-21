@@ -27,3 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+//获取当前选中的Theme
+const { selectedIndex } = document.querySelector('s-segmented-button')
+console.log('当前选中', selectedIndex)

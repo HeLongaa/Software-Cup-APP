@@ -5,7 +5,7 @@
     <title> PPT智作 </title>
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/ppt.css') }}" >
     <script type="module" src="https://jsd.duolaa.top/npm/sober@0.1.23/dist/main.js"></script>
-    <script src="{{ url_for('static', filename='/js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/ppt.js') }}"></script>
 </head>
 <body>
     <s-page style="background: transparent;">
@@ -37,21 +37,19 @@
                       <!--主题图片置入卡片-->
                       <div class="theme-all">
                           <div class="theme">
-                          <s-segmented-button>
-                              <s-segmented-button-item>item4</s-segmented-button-item>
-                              <s-segmented-button-item>item4</s-segmented-button-item>
-                              <s-segmented-button-item>item4</s-segmented-button-item>
-                              <s-segmented-button-item>item4</s-segmented-button-item>
-                              <s-segmented-button-item>item4</s-segmented-button-item>
-                              <s-segmented-button-item>item4</s-segmented-button-item>
-                              <s-segmented-button-item>item4</s-segmented-button-item>
+                              <s-segmented-button>
+                                  <s-segmented-button-item id="theme1">item4</s-segmented-button-item>
+                                  <s-segmented-button-item>item4</s-segmented-button-item>
+                                  <s-segmented-button-item>item4</s-segmented-button-item>
+                                  <s-segmented-button-item>item4</s-segmented-button-item>
+                                  <s-segmented-button-item>item4</s-segmented-button-item>
+                                  <s-segmented-button-item>item4</s-segmented-button-item>
+                                  <s-segmented-button-item>item4</s-segmented-button-item>
+                              </s-segmented-button>
+                          </div>
 
-                          </s-segmented-button>
-                      </div>
-
-                      <div class="theme-image">
-aaa
-                      </div>
+                          <div class="theme-image">
+                          </div>
                       </div>
 
                       <s-divider class="s1"></s-divider>

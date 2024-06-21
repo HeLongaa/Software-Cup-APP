@@ -214,14 +214,17 @@ class AIPPT:
 @app.route('/')
 def index():
     return render_template('index.html')
-@app.route('/PPT')
 
+
+@app.route('/PPT')
 def PPT():
     return render_template('PPT.html')
+
 
 @app.route('/Tools')
 def Tools():
     return render_template('Tools.html')
+
 
 @app.route('/result')
 def result():
@@ -245,6 +248,7 @@ def chat():
     )
     add_chat_record("assistant", response_content)
     return jsonify({"response": response_content})
+
 
 @app.route('/generate_ppt', methods=['POST'])
 def generate_ppt():
