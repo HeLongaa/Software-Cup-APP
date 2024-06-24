@@ -1,10 +1,4 @@
 
-document.addEventListener('DOMContentLoaded', function() {
-        var fabButton = document.getElementById('fabButton');
-        fabButton.addEventListener('click', function() {
-            window.location.href = '/';
-         });
-});
 
 
 document.querySelector('.main-2').style.display = 'none';

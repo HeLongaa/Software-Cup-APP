@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title> PPT智作 </title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='/css/ppt.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.ppt.css') }}" >
     <script type="module" src="/static/sober@0.1.141/dist/main.js"></script>
-    <script src="{{ url_for('static', filename='/js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/script.main.js') }}"></script>
+
     <script src="/static/js/jquery.min.js"></script>
 
 </head>
@@ -79,6 +80,7 @@
             </s-dialog>
         </div>
     </s-page>
+<script src="{{ url_for('static', filename='/js/script.ppt.js') }}"></script>
 <script type="text/javascript">
   $(function () {
     setTimeout(function () {

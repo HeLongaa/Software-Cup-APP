@@ -1,13 +1,6 @@
 var theme_a = "auto";
 var switchState = false;
 
-document.addEventListener('DOMContentLoaded', function() {
-        var fabButton = document.getElementById('fabButton');
-        fabButton.addEventListener('click', function() {
-            window.location.href = '/';
-         });
-});
-
 //加入空输入判别逻辑
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -72,11 +65,14 @@ function openTab(evt, themeIndex) {
 document.getElementsByClassName("tablinks")[0].classList.add("active");
 document.getElementById("dynamicImage").src = '/static/images/ppt-theme/auto.png';
 
+var mySwitch = document.getElementById('mySwitch');
 
-mySwitch.addEventListener('change', function() {
-  switchState = this.checked; // 全局变量
-});
-
+  // 监听开关状态的改变
+  mySwitch.addEventListener('change', function() {
+    // 打印开关的选中状态
+    console.log('Switch state is now:', this.checked);
+    switchState = this.checked; // 全局变量
+  });
 
 async function generatePPT() {
             const messageInput = document.getElementById('user-input');

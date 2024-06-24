@@ -1,4 +1,4 @@
-#coding=UTF-8
+# coding=UTF-8
 import os
 
 from flask import Flask, request, jsonify, render_template
@@ -147,13 +147,14 @@ def initialize_websocket_connection(app_id, api_secret, api_key, gpt_url, domain
 class AIPPT:
     """用于处理 PPT 生成的类"""
 
-    def __init__(self, app_id, api_secret, text,theme='auto',is_card_note=False):
+    def __init__(self, app_id, api_secret, text, theme='auto', is_card_note=False):
         self.app_id = app_id
         self.api_secret = api_secret
         self.text = text
         self.header = {}
-        self.theme=theme
+        self.theme = theme
         self.is_card_note = is_card_note
+
     def get_signature(self, ts):
         """获取签名"""
         try:
@@ -234,6 +235,10 @@ def Tools():
 def result():
     return render_template('result.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 
 @app.route('/chat', methods=['POST'])
 def chat():
@@ -253,17 +258,19 @@ def chat():
     add_chat_record("assistant", response_content)
     return jsonify({"response": response_content})
 
+
 @app.route('/generate_ppt', methods=['POST'])
 def generate_ppt():
     """处理PPT生成请求"""
     user_input = request.form['message']
-    theme_select=request.form.get('theme', 'auto')
-    is_card_note_select=request.form.get('is_card_note')=='true'
-    ppt_generator = AIPPT(app_id="fc25885c", api_secret="YzJlMjIxMDc1YmY3NzFiMTRjNGFlYmQx", text=user_input,theme=theme_select,is_card_note=is_card_note_select)
+    theme_select = request.form.get('theme', 'auto')
+    is_card_note_select = request.form.get('is_card_note') == 'true'
+    ppt_generator = AIPPT(app_id="fc25885c", api_secret="YzJlMjIxMDc1YmY3NzFiMTRjNGFlYmQx", text=user_input,
+                          theme=theme_select, is_card_note=is_card_note_select)
     ppt_url = ppt_generator.get_result()
     return jsonify({"ppt_url": ppt_url})
 
 
 if __name__ == '__main__':
-    app.run(port=os.getenv("PORT", default=5000), host='0.0.0.0')
+    app.run(debug=True, port=os.getenv("PORT", default=5000), host='0.0.0.0')
 
