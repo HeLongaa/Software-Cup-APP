@@ -1,3 +1,4 @@
+@import "sober";
 @font-face {
       font-family: "LXGW WenKai", sans-serif !important;
       src: url('https://cdn.staticfile.net/lxgw-wenkai-webfont/1.7.0/style.css') format('truetype'); /* 字体文件路径 */
@@ -39,11 +40,11 @@ body {
 
 .box {
     margin-top: 5%;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
     border-radius: 15px;
     height: 550px;
-    color: #fff;
+    color: #ffffff;
     text-align: center;
     line-height: 100px;
 	box-shadow: 0 10px 20px rgba(0,0,0,0.5);
@@ -54,13 +55,12 @@ body {
 
 
 .box1 {
-    flex: 8;
+    flex: 9;
 
 }
 
 .box2 {
-    flex: 2;
-    background-color: #99f;
+    flex: 1;
 }
 
 
@@ -102,4 +102,12 @@ body {
 }
 .loading span:nth-child(5){
     -webkit-animation-delay:0.8s;
+}
+
+
+.download {
+    max-width: 60px !important;
+    position:absolute;
+    bottom:50px;
+    right:50px;
 }

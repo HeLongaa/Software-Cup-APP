@@ -4,10 +4,22 @@
     <meta charset="UTF-8">
     <title> PPT智作 </title>
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/ppt.css') }}" >
-    <script type="module" src="https://jsd.duolaa.top/npm/sober@0.1.23/dist/main.js"></script>
-    <script src="{{ url_for('static', filename='/js/ppt.js') }}"></script>
+    <script type="module" src="/static/sober@0.1.141/dist/main.js"></script>
+    <script src="{{ url_for('static', filename='/js/main.js') }}"></script>
+    <script src="/static/js/jquery.min.js"></script>
+
 </head>
 <body>
+<!---加载动画--->
+    <div class="loaderbg">
+        <div class="spinner">
+            <div class="double rect1"></div>
+            <div class="double rect2"></div>
+            <div class="double rect3"></div>
+            <div class="double rect4"></div>
+            <div class="double rect5"></div>
+        </div>
+    </div>
     <s-page style="background: transparent;">
         <s-fab id="fabButton">
             <s-icon type="home"></s-icon>
@@ -35,27 +47,27 @@
 
                       <div class="H2"> PPT主题 </div>
                       <!--主题图片置入卡片-->
-                      <div class="theme-all">
-                          <div class="theme">
-                              <s-segmented-button>
-                                  <s-segmented-button-item id="theme1">item4</s-segmented-button-item>
-                                  <s-segmented-button-item>item4</s-segmented-button-item>
-                                  <s-segmented-button-item>item4</s-segmented-button-item>
-                                  <s-segmented-button-item>item4</s-segmented-button-item>
-                                  <s-segmented-button-item>item4</s-segmented-button-item>
-                                  <s-segmented-button-item>item4</s-segmented-button-item>
-                                  <s-segmented-button-item>item4</s-segmented-button-item>
-                              </s-segmented-button>
-                          </div>
+                      <div class="tab">
+                          <button class="tablinks" onclick="openTab(event, 'auto')"><a>自动主题</a></button>
+                          <button class="tablinks" onclick="openTab(event, 'purple')"><a>紫色主题</a></button>
+                          <button class="tablinks" onclick="openTab(event, 'green')"><a>绿色主题</a></button>
+                          <button class="tablinks" onclick="openTab(event, 'lightblue')"><a>清逸天蓝</a></button>
+                          <button class="tablinks" onclick="openTab(event, 'taupe')"><a>质感之境</a></button>
+                          <button class="tablinks" onclick="openTab(event, 'blue')"><a>星光夜影</a></button>
+                          <button class="tablinks" onclick="openTab(event, 'telecomRed')"><a>炽热暖阳</a></button>
+                          <button class="tablinks" onclick="openTab(event, 'telecomGreen')"><a>幻翠奇旅</a></button>
+                      </div>
 
-                          <div class="theme-image">
-                          </div>
+                      <div class="image-container">
+                          <img id="dynamicImage" src="/static/images/ppt-theme/auto.png" alt="Dynamic Image">
                       </div>
 
                       <s-divider class="s1"></s-divider>
                       <div class="H2"> 是否生成PPT注释 </div>
-                      <s-switch class="isc"></s-switch>
-                      <!--这个地方需要添加数据获取，通过组件属性，theme &isc，要求使用主题预览-->
+                      <label class="switch">
+                          <input type="checkbox" id="mySwitch">
+                          <span class="slider round"></span>
+                      </label>
 
                   </div>
                   <s-fab class="s-fab-false" slot="action">
@@ -64,9 +76,15 @@
                   <s-fab class="s-fab-done" slot="" id="checkButton">
                       <s-icon type="done"></s-icon>
                   </s-fab>
-                <!--done按钮需要绑定事件,位置：main,js-->
             </s-dialog>
         </div>
     </s-page>
+<script type="text/javascript">
+  $(function () {
+    setTimeout(function () {
+      $(".loaderbg").hide();
+    }, 1000);
+  })
+</script>
 </body>
 </html>

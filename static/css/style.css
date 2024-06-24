@@ -1,3 +1,4 @@
+
 @font-face {
       font-family: "LXGW WenKai", sans-serif !important;
       src: url('https://cdn.staticfile.net/lxgw-wenkai-webfont/1.7.0/style.css') format('truetype'); /* 字体文件路径 */
@@ -8,8 +9,11 @@
         margin: 5% auto;
     }
     .container {
-        flex-direction: column;
+        flex-direction: column !important;
         align-items: center;
+    }
+    .box:hover {
+        transform: none !important;
     }
 }
 
@@ -77,5 +81,7 @@ body {
     transition: background-color 0.3s;
     font-family: 'LXGW WenKai', sans-serif;
 }
+
+
 
 

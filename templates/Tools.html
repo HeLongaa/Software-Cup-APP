@@ -4,16 +4,85 @@
     <meta charset="UTF-8">
     <title>教学工具箱</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/tool.css') }}" >
-    <script type="module" src="https://jsd.duolaa.top/npm/sober@0.1.23/dist/main.js"></script>
-    <script src="{{ url_for('static', filename='/js/main.js') }}"></script>
+    <script type="module" src="/static/sober@0.1.141/dist/main.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+
 </head>
 <body>
-    <s-page style="background: transparent;">
+<!---加载动画--->
+    <div class="loaderbg">
+        <div class="spinner">
+            <div class="double rect1"></div>
+            <div class="double rect2"></div>
+            <div class="double rect3"></div>
+            <div class="double rect4"></div>
+            <div class="double rect5"></div>
+        </div>
+    </div>
+
+
+    <s-page style="background: transparent;" class="page">
         <s-fab id="fabButton">
             <s-icon type="home"></s-icon>
         </s-fab>
+        <div class="main">
+            <div class="main-1">
+                <s-card clickable="true" class="s-card" id="tool-1">
+                      <div slot="image"></div>
+                      <div slot="headline">Headline</div>
+                      <div slot="subhead">Subhead</div>
+                      <div slot="text">Cards are often used for grid lists, which provide click effects</div>
+                      <s-button slot="action">Action</s-button>
+                </s-card>
+                <s-card clickable="true" class="s-card" id="tool-2">
+                      <div slot="image"></div>
+                      <div slot="headline">Headline</div>
+                      <div slot="subhead">Subhead</div>
+                      <div slot="text">Cards are often used for grid lists, which provide click effects</div>
+                      <s-button slot="action">Action</s-button>
+                </s-card>
+                <s-card clickable="true" class="s-card" id="tool-3">
+                      <div slot="image"></div>
+                      <div slot="headline">Headline</div>
+                      <div slot="subhead">Subhead</div>
+                      <div slot="text">Cards are often used for grid lists, which provide click effects</div>
+                      <s-button slot="action">Action</s-button>
+                </s-card>
 
-
+            </div>
+            <div class="main-2">
+bbb
+            </div>
+            <div class="main-3">
+vvv
+            </div>
+        </div>
     </s-page>
+    <s-navigation class="banner">
+          <s-navigation-item selected="true"  id="banner-1">
+            <s-icon type="home" slot="icon" ></s-icon>
+            <div slot="text">Home</div>
+          </s-navigation-item>
+          <s-navigation-item id="banner-2">
+            <s-icon slot="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                  <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path>
+                </svg>
+            </s-icon>
+            <div slot="text">APP</div>
+          </s-navigation-item>
+          <s-navigation-item id="banner-3">
+            <s-icon type="add" slot="icon"></s-icon>
+            <div slot="text">FILE</div>
+          </s-navigation-item>
+        </s-navigation>
+<script src="{{ url_for('static', filename='/js/tool.js') }}"></script>
+<script type="text/javascript">
+  $(function () {
+    setTimeout(function () {
+      $(".loaderbg").hide();
+    }, 1000);
+  })
+</script>
 </body>
 </html>

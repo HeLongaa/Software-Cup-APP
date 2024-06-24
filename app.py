@@ -144,12 +144,13 @@ def initialize_websocket_connection(app_id, api_secret, api_key, gpt_url, domain
 class AIPPT:
     """用于处理 PPT 生成的类"""
 
-    def __init__(self, app_id, api_secret, text):
+    def __init__(self, app_id, api_secret, text,theme='auto',is_card_note=False):
         self.app_id = app_id
         self.api_secret = api_secret
         self.text = text
         self.header = {}
-
+        self.theme=theme
+        self.is_card_note = is_card_note
     def get_signature(self, ts):
         """获取签名"""
         try:
@@ -249,15 +250,17 @@ def chat():
     add_chat_record("assistant", response_content)
     return jsonify({"response": response_content})
 
-
 @app.route('/generate_ppt', methods=['POST'])
 def generate_ppt():
     """处理PPT生成请求"""
     user_input = request.form['message']
-    ppt_generator = AIPPT(app_id="fc25885c", api_secret="YzJlMjIxMDc1YmY3NzFiMTRjNGFlYmQx", text=user_input)
+    theme_select=request.form.get('theme', 'auto')
+    is_card_note_select=request.form.get('is_card_note')=='true'
+    ppt_generator = AIPPT(app_id="fc25885c", api_secret="YzJlMjIxMDc1YmY3NzFiMTRjNGFlYmQx", text=user_input,theme=theme_select,is_card_note=is_card_note_select)
     ppt_url = ppt_generator.get_result()
     return jsonify({"ppt_url": ppt_url})
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
+
