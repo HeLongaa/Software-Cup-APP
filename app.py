@@ -1,4 +1,6 @@
 #coding=UTF-8
+import os
+
 from flask import Flask, request, jsonify, render_template
 import _thread as thread
 import base64
@@ -263,5 +265,5 @@ def generate_ppt():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=os.getenv("PORT", default=5000), host='0.0.0.0')
 
