@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPT 生成</title>
+</head>
+<body>
+    <h1>PPT 生成</h1>
+    <form id="ppt-form">
+        <textarea name="message" rows="4" cols="50" placeholder="请输入您的内容"></textarea><br>
+        <label for="theme">主题:</label>
+        <select name="theme">
+            <option value="auto">自动</option>
+            <option value="business">商务</option>
+            <option value="education">教育</option>
+        </select><br>
+        <label for="is_card_note">是否卡片笔记:</label>
+        <input type="checkbox" name="is_card_note" value="true"><br>
+        <input type="submit" value="生成PPT">
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('ppt-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+
+            fetch('/ppt/generate_ppt', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `<p>PPT 下载链接: <a href="${data.ppt_url}" target="_blank">${data.ppt_url}</a></p>`;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
