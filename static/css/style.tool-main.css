@@ -1,0 +1,78 @@
+@import "http://cdn.repository.webfont.com/webfonts/nomal/154791/45803/668b75ada75bea2e78c06774.css";
+
+body {
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #E4E9F7;
+}
+
+.title {
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: black; /* 可选文字颜色 */
+    font-family: 'LiDeBiao-Xing33f35ecf6ed25ca7';
+}
+
+.main {
+    height: 57vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box {
+    background: #fff;
+    width: 23%;
+    height: 70%;
+    margin: 3px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s;
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+/* 手机端样式 */
+@media (max-width: 768px) {
+    .box {
+        width: 80%;
+        height: 20%;
+    }
+
+    .title {
+        display: none;
+    }
+
+    .main {
+        height: 100%;
+    }
+}
+
+/* 暗色模式样式 */
+body.dark {
+    background-color: #18191A;
+    color: #e0e0e0;
+}
+
+body.dark .title {
+    color: #e0e0e0;
+}
+
+body.dark .box {
+    background: #333;
+    color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}

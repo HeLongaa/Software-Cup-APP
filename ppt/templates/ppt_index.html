@@ -3,42 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.ppt-index.css">
     <title>PPT 生成</title>
 </head>
 <body>
-    <h1>PPT 生成</h1>
-    <form id="ppt-form">
-        <textarea name="message" rows="4" cols="50" placeholder="请输入您的内容"></textarea><br>
-        <label for="theme">主题:</label>
-        <select name="theme">
-            <option value="auto">自动</option>
-            <option value="business">商务</option>
-            <option value="education">教育</option>
-        </select><br>
-        <label for="is_card_note">是否卡片笔记:</label>
-        <input type="checkbox" name="is_card_note" value="true"><br>
-        <input type="submit" value="生成PPT">
-    </form>
-    <div id="result"></div>
+    <div class="main-head">
+        PPT智做
+    </div>
+    <div class="form-container">
 
-    <script>
-        document.getElementById('ppt-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const formData = new FormData(this);
+        <form id="ppt-form" class="form">
+            <div class="form-group">
+                <label for="message">请输入内容:</label>
+                <input type="text" name="message" placeholder="请输入内容" class="input" id="message">
+            </div>
+            <div class="form-group">
+                <label for="theme">主题:</label>
+                <select name="theme" class="theme" id="theme">
+                    <option value="auto">自动</option>
+                    <option value="business">商务</option>
+                    <option value="education">教育</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="is_card_note">是否卡片笔记:</label>
+                <input type="checkbox" name="is_card_note" value="true" id="is_card_note">
+                <label for="is_card_note" style="display: inline;">是</label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="生成PPT">
+            </div>
+        </form>
 
-            fetch('/ppt/generate_ppt', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                const resultDiv = document.getElementById('result');
-                resultDiv.innerHTML = `<p>PPT 下载链接: <a href="${data.ppt_url}" target="_blank">${data.ppt_url}</a></p>`;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+
+    </div>
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading"></div>
+    </div>
+    <div id="result" class="result"></div>
+<script src="../static/js/script.ppt.js"></script>
+<script>
+    // 检查URL参数
+    function getQueryParams() {
+        const params = {};
+        window.location.search.substring(1).split("&").forEach(param => {
+            const [key, value] = param.split("=");
+            params[key] = decodeURIComponent(value);
         });
-    </script>
+        return params;
+    }
+
+    const params = getQueryParams();
+    if (params.themes === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+</script>
 </body>
 </html>

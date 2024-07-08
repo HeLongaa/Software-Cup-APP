@@ -3,38 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.ocr.css">
     <title>OCR 手写文字识别</title>
 </head>
 <body>
-    <h1>OCR 手写文字识别</h1>
-    <form action="/ocr/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <input type="submit" value="上传">
-    </form>
-    <div id="result"></div>
+    <div class="main-head">
+        文字识别
+    </div>
+    <div class="form-container" id="form-container">
+        <form id="ocr-form" action="/ocr/upload" method="post" enctype="multipart/form-data">
+            <div class="file-upload">
+                <label for="file" id="file-label">
+                    <svg t="1720429885408" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="980"><path d="M512 89.043478a44.521739 44.521739 0 0 1 44.521739 44.521739v333.913044h333.913044a44.521739 44.521739 0 1 1 0 89.043478H556.521739v333.913044a44.521739 44.521739 0 1 1-89.043478 0V556.521739H133.565217a44.521739 44.521739 0 1 1 0-89.043478h333.913044V133.565217a44.521739 44.521739 0 0 1 44.521739-44.521739z" fill="#695CFE" p-id="981"></path></svg>
+                    选择文件
+                </label>
+                <input type="file" name="file" id="file" onchange="updateFileName(this)">
+                <div class="file-name" id="file-name"></div>
+            </div>
+            <input class="submit-btn" id="submit-btn" type="submit" value="上传">
+        </form>
+    </div>
+    <div id="result-container" style="display: none;">
+        <div id="result"></div>
+        <button id="return-btn" class="submit-btn" onclick="location.reload()">返回</button>
+    </div>
 
-    <script>
-        document.querySelector('form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-
-            fetch('/ocr/upload', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                const resultDiv = document.getElementById('result');
-                if (data.error) {
-                    resultDiv.innerHTML = `<p>Error: ${data.error}</p>`;
-                } else {
-                    resultDiv.innerHTML = `<p>识别结果:</p><pre>${data.text.join('\n')}</pre>`;
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
-    </script>
+    <script src="../static/js/script.ocr.js"></script>
 </body>
 </html>

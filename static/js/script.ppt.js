@@ -1,93 +1,65 @@
-var theme_a = "auto";
-var switchState = false;
+document.getElementById('ppt-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const messageInput = document.getElementById('message').value;
 
-//加入空输入判别逻辑
+            if (!messageInput) {
+                alert('请输入内容');
+                return;
+            }
 
-document.addEventListener('DOMContentLoaded', function() {
-    var userInput = document.getElementById('user-input');
-    var checkButton = document.getElementById('checkButton');
+            const formData = new FormData(this);
+            const loadingOverlay = document.getElementById('loading-overlay');
+            const resultDiv = document.getElementById('result');
 
-    checkButton.addEventListener('click', function() {
-        if (userInput.value.trim() === '') {
-            customElements.get('s-snackbar').show('您输入的需求为空，请重新输入！')
-            setTimeout(function() {
-                window.location.href = '/PPT';
-            }, 1500);
-            //这是个延时，用来给提示框预留显示时间
-        } else {
-            //debug
-            console.log("-------------------------------------------");
-            console.log('The switch state is:', switchState);
-            console.log('The theme of ppt is:', theme_a);
-            console.log('Text is:',userInput.value);
-            generatePPT();
-            // 结果
-            generatePPT().then((pptUrl) => {
-                console.log('PPT URL:', pptUrl);
-                // 需要加入逻辑，跳转到显示页面
-            }).catch((error) => {
-                console.error('Error during PPT generation:', error);
-            });
-        }
-    });
-});
+            loadingOverlay.style.display = 'block';
+            resultDiv.innerHTML = '';
 
-function openTab(evt, themeIndex) {
-  var i, tab, img, tablinks;
-
-  // Remove the "active" class from all tabs
-  for (i = 0; i < document.getElementsByClassName("tab").length; i++) {
-    tab = document.getElementsByClassName("tab")[i];
-    tab.classList.remove("active");
-  }
-
-  // Remove the "active" class from all tablinks
-  for (i = 0; i < document.getElementsByClassName("tablinks").length; i++) {
-    tablinks = document.getElementsByClassName("tablinks")[i];
-    tablinks.classList.remove("active");
-  }
-
-  // Set the "active" class on the clicked tab
-  evt.currentTarget.classList.add("active");
-
-  // Get the image element to update
-  img = document.getElementById("dynamicImage");
-
-  // Update the image source based on the tab index
-  img.src = '/static/images/ppt-theme/' + themeIndex + '.png';
-
-  theme_a = themeIndex;
-
-  console.log('The theme is:', theme_a);
-}
-
-// Set the first tab as active by default
-document.getElementsByClassName("tablinks")[0].classList.add("active");
-document.getElementById("dynamicImage").src = '/static/images/ppt-theme/auto.png';
-
-var mySwitch = document.getElementById('mySwitch');
-
-  // 监听开关状态的改变
-  mySwitch.addEventListener('change', function() {
-    // 打印开关的选中状态
-    console.log('Switch state is now:', this.checked);
-    switchState = this.checked; // 全局变量
-  });
-
-async function generatePPT() {
-            const messageInput = document.getElementById('user-input');
-            const message = messageInput.value;
-            const response = await fetch('/generate_ppt', {
+            fetch('/ppt/generate_ppt', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body:
-                    'message=' + encodeURIComponent(message) +
-                    '&theme=' + encodeURIComponent(theme_a) +
-                    '&is_card_note=' + encodeURIComponent(switchState),
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                loadingOverlay.style.display = 'none';
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `
+                    <iframe
+                    src='https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(data.ppt_url)}'
+                    class="ppt-result">
+                    </iframe>
+                    <button class="button1" id="exit">取消</button>
+                    <button class="button2" id="download">下载</button>
+                `;
+                document.getElementById('exit').addEventListener('click', function() {
+                    var divs = document.getElementsByClassName('result');
+                    for (var i = 0; i < divs.length; i++) {
+                        divs[i].style.display = 'none';
+                    }
+                });
+
+                document.getElementById('download').addEventListener('click', function() {
+                    fetch(data.ppt_url)
+                        .then(response => response.blob())
+                        .then(blob => {
+                            const url = window.URL.createObjectURL(blob);
+                            const a = document.createElement('a');
+                            a.style.display = 'none';
+                            a.href = url;
+                            a.download = 'generated_ppt.pptx';  // 指定下载文件的名称
+                            document.body.appendChild(a);
+                            a.click();
+                            window.URL.revokeObjectURL(url);
+                        })
+                        .catch(error => console.error('下载错误:', error));
+                });
+            })
+            .catch(error => {
+                loadingOverlay.style.display = 'none';
+                resultDiv.innerHTML = `<p>发生错误: ${error}</p>`;
+                console.error('Error:', error);
             });
-            const data = await response.json();
-            return data.ppt_url;
-        }
+        });
+
+
+
 

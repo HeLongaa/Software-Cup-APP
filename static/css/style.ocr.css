@@ -1,0 +1,143 @@
+@import "http://cdn.repository.webfont.com/webfonts/nomal/154791/45803/668ba1f2a75bea2e78c0678b.css";
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E4E9F7;
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.main-head {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 30px;
+    font-family: 'LiDeBiao-Xing33f3699e38a25ca7', sans-serif;
+    font-size: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.file-upload {
+    position: relative;
+    width: 80%;
+    height: 250px;
+    margin: 20px auto;
+    border: 2px dashed #695CFE;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.file-upload label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    font-size: 1.5em;
+    color: #695CFE;
+}
+
+.file-upload label:hover {
+    transform: scale(1.1);
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+#file-label {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.icon {
+    margin-bottom: 10px;
+    width: 90px;
+}
+
+.submit-btn {
+    display: block;
+    border: none;
+    border-radius: 12px;
+    background-color: #695CFE;
+    color: #fff;
+    margin: 15px auto;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.submit-btn:hover {
+    background-color: #fff;
+    color: #695CFE;
+    border: 1px solid #ccc;
+}
+
+.file-name {
+    position: absolute;
+    bottom: 10px;
+    font-size: 1em;
+    color: #888;
+}
+
+.result {
+    margin: 40px 40px;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #18191A;
+    color: #e4e4e4;
+}
+
+body.dark-mode .form-container {
+    background: #242526;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .main-head {
+    color: #e4e4e4;
+}
+
+body.dark-mode .file-upload {
+    border-color: #7a7aff;
+}
+
+body.dark-mode .file-upload label {
+    color: #7a7aff;
+}
+
+body.dark-mode .submit-btn {
+    background-color: #7a7aff;
+    color: #1a1a2e;
+}
+
+body.dark-mode .submit-btn:hover {
+    background-color: #1a1a2e;
+    color: #7a7aff;
+    border: 1px solid #7a7aff;
+}
+
+body.dark-mode .file-name {
+    color: #bbb;
+}

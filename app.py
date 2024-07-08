@@ -15,5 +15,13 @@ app.register_blueprint(ppt_bp, url_prefix='/ppt')
 def index():
     return render_template('index.html')
 
+@app.route('/tool')
+def tool():
+    return render_template('Tools.html')
+
+@app.route('/tool-main')
+def toolmain():
+    return render_template('tool-main.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
