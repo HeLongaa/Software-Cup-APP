@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 function checkScreenSize() {
-            var
             if (window.innerWidth <= 1000) {
                 sidebar.classList.toggle('close')
                 
