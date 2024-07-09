@@ -323,7 +323,7 @@ body.dark .switch::before{
 
 .content {
     display: none;
-    margin: 20px 30px 20px 30px;
+    margin: 0 0 0 0;
     height: 94vh;
 }
 
@@ -343,3 +343,4 @@ body.dark .switch::before{
 body.dark .home .text{
     color: var(--text-color);
 }
+

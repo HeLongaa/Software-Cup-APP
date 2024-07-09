@@ -4,7 +4,7 @@ body {
     margin: 0;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
     background-color: #E4E9F7;
 }
 
@@ -17,6 +17,7 @@ body {
     font-size: 100px;
     color: black; /* 可选文字颜色 */
     font-family: 'LiDeBiao-Xing33f35ecf6ed25ca7';
+    margin-top: 50px;
 }
 
 .main {

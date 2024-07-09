@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 function checkScreenSize() {
-            
+            var
             if (window.innerWidth <= 1000) {
                 sidebar.classList.toggle('close')
                 
@@ -98,4 +98,31 @@ navLinks.forEach(navLink => {
                     targetContent.classList.add('active');
                 }
             });
-        });        
+        });
+
+// 功能：根据 URL 哈希值更新内容显示
+function handleHashChange() {
+    const hash = window.location.hash.substring(1); // 去掉前面的 #
+    if (hash) {
+        const targetContent = document.getElementById(hash);
+        if (targetContent) {
+            // 移除所有 nav-link 元素的 selected 类
+            navLinks.forEach(link => link.classList.remove('selected'));
+                // 为当前哈希值对应的 nav-link 元素添加 selected 类
+            const targetNavLink = document.querySelector(`.nav-link[data-target="${hash}"]`);
+            if (targetNavLink) {
+                targetNavLink.classList.add('selected');
+            }
+
+            // 隐藏所有内容并显示对应的内容
+            contents.forEach(content => content.classList.remove('active'));
+            targetContent.classList.add('active');
+        }
+    }
+}
+
+// 初始加载时处理哈希值
+handleHashChange();
+
+// 哈希值变化
+window.addEventListener('hashchange', handleHashChange);
