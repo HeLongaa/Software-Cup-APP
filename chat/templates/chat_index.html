@@ -1,36 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>聊天功能</title>
+    <title>ChatGPT Demo</title>
+    <link rel="stylesheet" href="../static/css/style.chat.css">
 </head>
 <body>
-    <h1>聊天功能</h1>
-    <form id="chat-form">
-        <textarea name="message" rows="4" cols="50" placeholder="请输入您的消息"></textarea><br>
-        <input type="submit" value="发送">
-    </form>
-    <div id="chat-history"></div>
-
-    <script>
-        document.getElementById('chat-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-
-            fetch('/chat/chat', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                const chatHistoryDiv = document.getElementById('chat-history');
-                chatHistoryDiv.innerHTML += `<p>Assistant: ${data.response}</p>`;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
-    </script>
+    <div id="chatbox">
+        <div id="messages">
+        </div>
+        <div class="input-box">
+            <input type="text" id="message" placeholder="给讯飞发送消息">
+            <button onclick="sendMessage()"><i class='bx bx-send icon'></i></button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="../static/js/script.chat.js"></script>
 </body>
 </html>
