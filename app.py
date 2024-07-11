@@ -44,4 +44,4 @@ def handle_message(data):
     SparkApi.main(appid, api_key, api_secret, Spark_url, domain, text, process_response)
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    socketio.run(app)
