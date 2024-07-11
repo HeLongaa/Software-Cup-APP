@@ -18,7 +18,7 @@ app.register_blueprint(chat_bp, url_prefix='/chat')
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('tool-main.html')
 
 @app.route('/tool')
 def tool():

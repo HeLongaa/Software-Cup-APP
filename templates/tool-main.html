@@ -1,27 +1,55 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>A</title>
-    <link rel="stylesheet" href="/static/css/style.tool-main.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/css/style.tool-main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <title>Document</title>
+</head>
+
+<body id="body">
+    <div class="container">
+        <h1>智能助教系统</h1>
+        <div class="row">
+            <div class="service" onclick="window.top.location.href='/tool#2'">
+                <i class="fas fa-tv"></i>
+                <h2>PPT智做</h2>
+                <p>使用讯飞星火认知大模型构建的PPT生成系统</p>
+            </div>
+            <div class="service" onclick="window.top.location.href='/tool#3'">
+                <i class="fas fa-pen"></i>
+                <h2>文字识别</h2>
+                <p>基于深度神经网络模型的端到端文字识别系统，将图片中的手写字体转化为计算机可编码的文字</p>
+            </div>
+            <div class="service" onclick="window.top.location.href='/tool#4'">
+                <i class="fas fa-comment-dots"></i>
+                <h2>智能聊天</h2>
+                <p>以中文为核心的新一代认知智能大模型，大模型能够在与人自然的对话互动的过程中提供服务</p>
+            </div>
+            <div class="service" onclick="window.top.location.href='/tool#5'">
+                <i class="fas fa-database"></i>
+                <h2>Other</h2>
+                <p>Comprehensive insights from complex data sets.</p>
+            </div>
+        </div>
+
+
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const params = new URLSearchParams(window.location.search);
-            if (params.get('themes') === 'dark') {
-                document.body.classList.add('dark');
+            const urlParams = new URLSearchParams(window.location.search);
+            const theme = urlParams.get('themes');
+
+            if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
             }
         });
     </script>
-</head>
-<body>
-    <div class="title">
-        所有工具
-    </div>
-    <div class="main">
-        <div class="box">1</div>
-        <div class="box">2</div>
-        <div class="box">3</div>
-        <div class="box">4</div>
-    </div>
+
 </body>
+
+
 </html>

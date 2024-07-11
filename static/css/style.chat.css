@@ -26,6 +26,7 @@ body.dark-mode {
     margin: auto;
 }
 #messages {
+    margin-top: 20px;
     background-color: white;
     padding: 10px;
     height: 85%;
