@@ -6,6 +6,7 @@
 
 - 本项目运行于Python-3.11环境下
 
+
 1. 本地启动
    
     >    git clone https://github.com/HeLongaa/Software-Cup-APP.git
