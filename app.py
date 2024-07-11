@@ -1,11 +1,12 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
-
 from chat import SparkApi
 from ocr.routes import ocr_bp
 from text_processing.routes import text_bp
 from ppt.routes import ppt_bp
 from chat.routes import chat_bp, appid, api_key, api_secret, Spark_url, domain
+import logging
+logging.getLogger('werkzeug').disabled = True
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
@@ -49,4 +50,6 @@ def handle_message(data):
 
 
 if __name__ == '__main__':
+
     socketio.run(app, allow_unsafe_werkzeug=True)
+

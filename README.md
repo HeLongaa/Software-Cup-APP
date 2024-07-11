@@ -21,17 +21,12 @@
     >    set FLASK_APP=app.py  
     >   
     >    flask run  
-     
-2. BT面板安装：  
-  
-   1. 安装BT面板（特殊版本）：  
-   CentOS：yum install -y wget && wget -O install.sh http://www.btkaixin.net/install/install_6.0.sh && sh install.sh  
-   Ubuntu/Debian：wget -O install.sh http://www.btkaixin.net/install/install_6.0.sh && bash install.sh  
-   2. 安装Python 3.11.4  
-   3. 添加项目  
-   4. 启动项目，配置如下：  
-   ![demo](/static/images/demo.png)  
-   5. 访问链接：  
-   6. 配置反向代理及ssl  
-  
-3. Docker镜像：待添加
+   
+2. Docker镜像：
+    > docker pull registry.ap-southeast-1.aliyuncs.com/helongaa/aiedu:1.0.1
+    > 
+    > 建议指定版本号拉取
+    > 
+    > docker run -p 5000:5000 registry.ap-southeast-1.aliyuncs.com/helongaa/aiedu:1.0.1
+    > 
+    > 访问ip:5000即可
