@@ -16,17 +16,21 @@ app.register_blueprint(text_bp, url_prefix='/text')
 app.register_blueprint(ppt_bp, url_prefix='/ppt')
 app.register_blueprint(chat_bp, url_prefix='/chat')
 
+
 @app.route('/')
 def index():
     return render_template('tool-main.html')
+
 
 @app.route('/tool')
 def tool():
     return render_template('Tools.html')
 
+
 @app.route('/tool-main')
 def toolmain():
     return render_template('tool-main.html')
+
 
 # 处理前端发送的WebSocket消息,用于/chat
 @socketio.on('message')
@@ -42,6 +46,7 @@ def handle_message(data):
             emit('response', {'content': content})
 
     SparkApi.main(appid, api_key, api_secret, Spark_url, domain, text, process_response)
+
 
 if __name__ == '__main__':
     socketio.run(app)
