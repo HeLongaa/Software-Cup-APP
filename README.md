@@ -27,6 +27,6 @@
     > 
     > 建议指定版本号拉取
     > 
-    > docker run -p 5000:5000 registry.ap-southeast-1.aliyuncs.com/helongaa/aiedu:1.0.1
+    > docker run -d -p 5000:5000 registry.ap-southeast-1.aliyuncs.com/helongaa/aiedu:1.0.1
     > 
     > 访问ip:5000即可
