@@ -1,0 +1,163 @@
+@import "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css";
+:root {
+    --primary-color: #695CFE;
+    --text-color: #333;
+    --text-color-dark: #fff;
+    --background-color-light: #E4E9F7;
+    --background-color-dark: #18191A;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color-light);
+    margin-top: 0;
+
+}
+
+.container {
+    margin-bottom: 40px;
+    text-align: center;
+}
+.box-all {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.box {
+    margin: 20px;
+    background-color: #FFFFFF;
+    width: 500px;
+    height: 70vh;
+    order: 0;
+    border-radius: 16px;
+}
+
+#translationForm ,#translationForm-a{
+    max-height: 100%; /* 表单高度不能超过外部元素 */
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+
+#translationForm label ,#translationForm-a label {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.textarea_box {
+    margin-bottom: 10px;
+
+}
+
+.textareaText {
+    margin-top: 20px;
+    width: 100% !important;
+    height: 40vh !important;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: var(--text-color-dark);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #fff;
+    border: 2px solid var(--primary-color);
+    color: var(--text-color);
+}
+
+#result {
+    margin: 15px;
+    font-size: 20px;
+    height: 50vh;
+    overflow-y: auto;
+}
+
+.select {
+    margin-top: -15px;
+    display: inline-block;
+    width: 90px;
+    position: relative;
+    vertical-align: middle;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+    color: #555;
+    border: 1px solid #aaa;
+    text-shadow: none;
+    border-radius: 30px;
+    transition: box-shadow 0.25s ease;
+    z-index: 2;
+}
+
+.select:hover {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.select select {
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    background: transparent;
+}
+
+.select select:focus {
+    outline: none;
+}
+
+
+/*暗色moshi*/
+body.dark-mode {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+
+body.dark-mode .box {
+    background-color: #2E2E2E;
+}
+
+body.dark-mode .textareaText {
+    background-color: #2E2E2E;
+    color: var(--text-color-dark);
+}
+
+body.dark-mode .button-container button:hover {
+    background-color: #2E2E2E;
+    color: var(--text-color-dark);
+}
+
+body.dark-mode .select select {
+    color: var(--text-color-dark);
+    background: #2E2E2E;
+}
+
+
+
+
