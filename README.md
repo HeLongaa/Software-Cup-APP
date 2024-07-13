@@ -3,7 +3,7 @@
 ![demo](/static/images/demo.png) 
 
 | ![demo](/static/images/demo2.png) | ![demo](/static/images/demo3.png) |
-|-----------------------------------| --------------------------------- |
+|-----------------------------------|-----------------------------------|
 | ![demo](/static/images/demo4.png) | ![demo](/static/images/demo5.png) |                                 |                                   |
 
 ## 安装和本地启动  
