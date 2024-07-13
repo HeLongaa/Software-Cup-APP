@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="con_p">
+    <h2>配置项详情: {{ config_name }}</h2>
+    <table style="margin-bottom: 20px">
+        {% for key, value in config.items() %}
+            <tr>
+                <th>{{ key }}</th>
+                <td>{{ value }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('manage.edit_config', config_name=config_name) }}">编辑</a>
+    <a href="{{ url_for('manage.index') }}">返回首页</a>
+    </div>
+{% endblock %}

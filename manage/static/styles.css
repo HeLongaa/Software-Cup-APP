@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E4E9F7;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #695CFE;
+    color: white;
+    text-align: center;
+    text-decoration: none; /* 去除链接默认下划线 */
+    border: none; /* 去除边框 */
+    border-radius: 6px; /* 圆角 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    }
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav a {
+    margin: 0 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.flashes {
+    list-style-type: none;
+    padding: 0;
+}
+
+.flashes li {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.flashes .danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.flashes .success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.flashes .info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    border-radius: 6px;
+    width: 80%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+form button {
+    padding: 10px 15px;
+    background-color: #695CFE;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.bu {
+    margin-left: 330px;
+    margin-right: 0;
+    padding: 10px 0;
+    background-color: #695CFE;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    width: 60px;
+}
+
+.bu a {
+    color:white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.login-box {
+    background-color: #FFFFFF;
+    padding: 15px 40px 40px 40px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.centered {
+    text-align: center;
+    padding-top: 30px;
+}
+
+form input[type="submit"] {
+    width: 90px;
+    height: 40px;
+    background-color: #695CFE;
+    border-radius: 10px;
+    border: none;
+    color: #FFFFFF;
+}
+
+.custom-list {
+    background-color: #fff;
+    height: 40vh;
+    font-size: 20px;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.custom-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-list li {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.con_p {
+    background-color: #FFFFFF;
+    padding: 10px 40px 40px 40px;
+    border-radius: 15px;
+}

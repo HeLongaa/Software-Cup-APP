@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="con_p" style="text-align: center">
+    <h2>编辑配置项: {{ config_name }}</h2>
+    <form method="post">
+        {% for key, value in config.items() %}
+            <div>
+                <label for="{{ key }}">{{ key }}</label><br>
+                <input type="text" id="{{ key }}" name="{{ key }}" value="{{ value }}">
+            </div>
+        {% endfor %}
+        <button type="submit">保存</button>
+    </form>
+    <div class="bu"><a href="{{ url_for('manage.view_config', config_name=config_name) }}">取消</a></div>
+    </div>
+{% endblock %}

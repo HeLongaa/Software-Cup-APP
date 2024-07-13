@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>配置项列表</h2>
+    <div class="custom-list">
+        <ul style="list-style-type: none;">
+            {% for config_name in configurations %}
+                <li>
+                    <a href="{{ url_for('manage.view_config', config_name=config_name) }}">{{ config_name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
