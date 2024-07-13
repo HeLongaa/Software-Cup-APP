@@ -2,6 +2,8 @@
   
 ![demo](/static/images/demo.png) 
 
+demo:http://edu.duolaa.asia/
+
 | ![demo](/static/images/demo2.png) | ![demo](/static/images/demo3.png) |
 |-----------------------------------|-----------------------------------|
 | ![demo](/static/images/demo4.png) | ![demo](/static/images/demo5.png) |                                 |                                   |
@@ -23,8 +25,11 @@
     >   
     >    flask run  
    
-2. ~~Docker镜像：~~
-    已删除，存在运行问题
+2. Docker镜像：
+    
+    > docker pull registry.ap-southeast-1.aliyuncs.com/helongaa/aiedu:1.0.2
+   > 
+    > docker run -p 5000:5000 registry.ap-southeast-1.aliyuncs.com/helongaa/aiedu:1.0.2
 
 
 ## 配置
