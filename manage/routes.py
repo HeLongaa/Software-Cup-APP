@@ -77,7 +77,6 @@ def edit_config(config_name):
     if request.method == 'POST':
         for key in config:
             config[key] = request.form.get(key)
-
         with open('config.py', 'w') as f:
             f.write(f"configurations = {json.dumps(configurations, indent=4)}")
         flash('配置项已更新', 'success')

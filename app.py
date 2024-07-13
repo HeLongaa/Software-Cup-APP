@@ -1,4 +1,6 @@
+import importlib
 import logging
+
 from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
 from chat import SparkApi
@@ -10,9 +12,11 @@ from manage import manage_bp
 
 
 logging.getLogger('werkzeug').disabled = True
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
 socketio = SocketIO(app)
+
 
 app.register_blueprint(ocr_bp, url_prefix='/ocr')
 app.register_blueprint(translate_bp, url_prefix='/tra')  # 注册新的蓝图
@@ -21,9 +25,8 @@ app.register_blueprint(manage_bp, url_prefix='/manage')
 app.register_blueprint(chat_bp, url_prefix='/chat')
 
 
-
 @app.route('/')
-def home():
+def index():
     return render_template('tool-main.html')
 
 
@@ -52,7 +55,6 @@ def handle_message(data):
     SparkApi.main(appid, api_key, api_secret, Spark_url, domain, text, process_response)
 
 
-
-
 if __name__ == '__main__':
-    socketio.run(app, allow_unsafe_werkzeug=True)
+    socketio.run(app, debug=True)
+
