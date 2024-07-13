@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="con_p" style="text-align: center">
-    <h2>编辑配置项: {{ config_name }}</h2>
+    <h2>编辑配置项（配置项更新后需要等待5~10s生效）: {{ config_name }}</h2>
     <form method="post">
         {% for key, value in config.items() %}
             <div>
