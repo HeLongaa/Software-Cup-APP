@@ -5,8 +5,10 @@ import hmac
 import json
 import requests
 import time
+from id import configurations
 
 ppt_bp = Blueprint('ppt', __name__, template_folder='templates')
+
 
 class AIPPT:
     def __init__(self, app_id, api_secret, text, theme='auto', is_card_note=False):
@@ -69,15 +71,21 @@ class AIPPT:
                 return response['data']['pptUrl']
             time.sleep(5)
 
+
 @ppt_bp.route('/')
 def index():
     return render_template('ppt_index.html')
 
+
 @ppt_bp.route('/generate_ppt', methods=['POST'])
 def generate_ppt():
+    config = configurations["config_ppt"]
+    app_id = config['app_id']
+    api_secret = config['api_secret']
     user_input = request.form['message']
     theme_select = request.form.get('theme', 'auto')
     is_card_note_select = request.form.get('is_card_note') == 'true'
-    ppt_generator = AIPPT(app_id="fc25885c", api_secret="YzJlMjIxMDc1YmY3NzFiMTRjNGFlYmQx", text=user_input, theme=theme_select, is_card_note=is_card_note_select)
+    ppt_generator = AIPPT(app_id=app_id, api_secret=api_secret, text=user_input, theme=theme_select,
+                          is_card_note=is_card_note_select)
     ppt_url = ppt_generator.get_result()
     return jsonify({"ppt_url": ppt_url})

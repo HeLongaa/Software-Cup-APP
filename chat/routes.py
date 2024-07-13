@@ -1,18 +1,16 @@
-from flask import Blueprint, render_template, request, Flask
-from flask_socketio import emit, SocketIO
-import chat.SparkApi as SparkApi
+from flask import Blueprint, render_template
+from id import configurations
 
 chat_bp = Blueprint('chat', __name__, template_folder="templates")
 
+config = configurations["config_chat"]
+appid = config["appid"]
+api_secret = config["api_secret"]
+api_key = config["api_key"]
+domain = config["domain"]
+Spark_url = config["chat_url"]
 
-appid = "2d2fc3e9"
-api_secret = "NDQwZWJhNGU2MmNlOWJkOGQxYjI2ZTNi"
-api_key = "f8930205f626138a4882b8d4e01a923b"
-domain = "generalv3.5"
-Spark_url = "wss://spark-api.xf-yun.com/v3.5/chat"
 
 @chat_bp.route('/')
 def index():
     return render_template('chat_index.html')
-
-

@@ -5,13 +5,14 @@ import hashlib
 import time
 import requests
 import json
+from id import configurations
 
 ocr_bp = Blueprint('ocr', __name__, template_folder='templates')
 
-# OCR手写文字识别接口地址
-OCR_URL = "http://webapi.xfyun.cn/v1/service/v1/ocr/handwriting"
-OCR_APPID = "c5274a8a"
-OCR_API_KEY = "9a2d93aaa51b1b2a84dba262dd3d0e82"
+config = configurations["config_ocr"]
+OCR_URL = config['ocr_url']
+OCR_APPID = config['appid']
+OCR_API_KEY = config['api_key']
 
 def get_ocr_header():
     curTime = str(int(time.time()))

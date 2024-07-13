@@ -8,13 +8,15 @@ import hmac
 from urllib.parse import urlencode
 import json
 import requests
+from id import configurations
 
 translate_bp = Blueprint('translate', __name__, template_folder='templates', static_folder='static')
 
-APPId = "2d2fc3e9"
-APISecret = "NDQwZWJhNGU2MmNlOWJkOGQxYjI2ZTNi"
-APIKey = "f8930205f626138a4882b8d4e01a923b"
-RES_ID = "its_en_cn_word"
+config = configurations["config_tra"]
+APPId = config["appid"]
+APISecret = config["api_secret"]
+APIKey = config["api_key"]
+RES_ID = config["RES_ID"]
 
 
 class AssembleHeaderException(Exception):
