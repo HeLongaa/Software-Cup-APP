@@ -5,7 +5,7 @@ import hashlib
 import time
 import requests
 import json
-from id import configurations
+from config import configurations
 
 ocr_bp = Blueprint('ocr', __name__, template_folder='templates')
 

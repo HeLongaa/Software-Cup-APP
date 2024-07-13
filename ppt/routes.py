@@ -5,7 +5,7 @@ import hmac
 import json
 import requests
 import time
-from id import configurations
+from config import configurations
 
 ppt_bp = Blueprint('ppt', __name__, template_folder='templates')
 

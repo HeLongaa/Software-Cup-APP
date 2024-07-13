@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from id import configurations
+from config import configurations
 
 chat_bp = Blueprint('chat', __name__, template_folder="templates")
 

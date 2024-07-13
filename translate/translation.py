@@ -8,7 +8,7 @@ import hmac
 from urllib.parse import urlencode
 import json
 import requests
-from id import configurations
+from config import configurations
 
 translate_bp = Blueprint('translate', __name__, template_folder='templates', static_folder='static')
 
