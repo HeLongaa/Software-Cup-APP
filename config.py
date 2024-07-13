@@ -21,5 +21,4 @@ configurations = {
         "app_id": "fc25885c",
         "api_secret": "YzJlMjIxMDc1YmY3NzFiMTRjNGFlYmQx"
     }
-
 }
