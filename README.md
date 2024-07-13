@@ -23,14 +23,9 @@
     >   
     >    flask run  
    
-2. Docker镜像：
-    > docker pull registry.ap-southeast-1.aliyuncs.com/helongaa/aiedu:1.0.2
-    > 
-    > 建议指定版本号拉取
-    > 
-    > docker run -d -p 5000:5000 registry.ap-southeast-1.aliyuncs.com/helongaa/aiedu:1.0.2
-    > 
-    > 访问ip:5000即可
+2. ~~Docker镜像：~~
+    已删除，存在运行问题
+
 
 ## 配置
 
